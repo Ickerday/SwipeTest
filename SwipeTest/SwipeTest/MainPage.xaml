@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SwipeTest.Controls"
+             x:Class="SwipeTest.MainPage">
+
+    <StackLayout>
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+        <ListView ItemsSource="{Binding Items}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="50">
+                            <StackLayout.GestureRecognizers>
+
+                                <controls:CustomPanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+
+                            </StackLayout.GestureRecognizers>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Label Text="{Binding Text1}" />
+
+                                <Label Text="{Binding Text2}" />
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
